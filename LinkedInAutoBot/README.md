@@ -1,6 +1,6 @@
-# A linkedinautobot Flet app
+# Flet app
 
-An example of a minimal Flet app.
+A simple Flet app.
 
 To run the app:
 
