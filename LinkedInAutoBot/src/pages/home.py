@@ -1,5 +1,5 @@
 import os
-from flet import ImageFit, Column, Image, ImageRepeat, ElevatedButton, ButtonStyle, TextStyle, Colors, LinearGradient, alignment
+from flet import Column, Image, ImageRepeat, ElevatedButton, ButtonStyle, TextStyle, Colors
 from modules.GUI_elements import *
 
 def home_page(open_website, toggle_theme, start_setup):

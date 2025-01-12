@@ -1,5 +1,5 @@
 import os
-from flet import Column, Row, Container, Icons, Icon, Colors, ResponsiveRow, TextField, alignment, Offset, ImageFit, Image, ImageRepeat, padding, margin, border_radius, ElevatedButton, ButtonStyle, TextStyle, MainAxisAlignment, CupertinoSwitch, RangeSlider, Slider
+from flet import Column, Row, Container, Icons, Icon, Colors, ResponsiveRow, TextField, alignment, Offset, ImageFit, Image, ImageRepeat, padding, margin, border_radius, ElevatedButton, ButtonStyle, TextStyle, MainAxisAlignment, CupertinoSwitch, Slider
 
 from modules.GUI_elements import CustonText
 
