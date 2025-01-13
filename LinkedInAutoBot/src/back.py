@@ -2,44 +2,32 @@ import os
 import time
 import webbrowser as web
 import pyautogui as pg
+from modules.image_search import ImageLocator
 
-from modules.image_search import *
-
-def AutoBot(e, pages, connect, search):
-    name_bot=str(input('Digite um nome para o bot'))
-    search= str(input('Qual o termo de pesquisa? '))
-
-    Time= int(input("Time click"))
-    connect= int(input('Quantas conexões deseja fazer? '))
-    pages=int(input('Quantas páginas deseja percorrer? '))
-
-    print(f'🤖 {name_bot}, ligado e operando...')
+def AutoBot(bot_name, search, time_click, connect, pages):
+    print(f"🤖 {bot_name}, ligado e operando...")
 
     try:
         url = 'https://www.linkedin.com/'
         web.open(url)
-        pg.sleep(Time) # 5
+        pg.sleep(time_click)
         pg.hotkey('ctrl', '0')
-        pg.sleep(Time) # 1.5
+        pg.sleep(time_click)
         pg.hotkey("f11")
 
-        # search
+        # Locate and interact with the search field
         image_path = os.path.join('LinkedInAutoBot', 'src', 'assets', 'screen_elements', 'search.png')
         home_position = pg.locateCenterOnScreen(image_path, confidence=0.8)
         if home_position:
             pg.moveTo(home_position, duration=1)
             pg.leftClick()
-            pg.write(f"{search} \n", interval=0.1)
+            pg.write(f"{search}\n", interval=0.1)
             time.sleep(2.5)
 
-        # navigation
-        locator_people = ImageLocator(os.path.join('LinkedInAutoBot', 'src', 'assets', 'screen_elements', 'people.png'))
-        locator_people.start_search()
-        pg.sleep(Time) # 2.5
-
-        for p in range(1, pages):
-            pg.sleep(Time) # 1.5
-            for c in range(1, connect):
+        # Navigation and connections
+        for p in range(1, pages + 1):
+            pg.sleep(time_click)
+            for c in range(1, connect + 1):
                 locator_connect = ImageLocator(os.path.join('LinkedInAutoBot', 'src', 'assets', 'screen_elements', 'connect.png'))
                 locator_connect.start_search()
 
@@ -48,17 +36,12 @@ def AutoBot(e, pages, connect, search):
                 print(f"Conexão {c}")
 
             pg.scroll(-500)
+            print(f"Página {p}")
 
-            pg.sleep(Time) # 1.5
-            locator_next = ImageLocator(os.path.join('LinkedInAutoBot', 'src', 'assets', 'screen_elements', 'next.png'))
-            locator_next.start_search()
-
-            print(f"Pagina {p}")
-
-    except Exception:
-        print('😤 O programa encontrou um erro, tente novamente!')
+    except Exception as e:
+        print(f"😤 O programa encontrou um erro: {e}")
     finally:
-        time.sleep(2.5)
+        time.sleep(1)
         pg.hotkey('f11')
         pg.hotkey('ctrl', '0')
         print('🎉 Automação finalizada!')

@@ -1,13 +1,18 @@
 import os
-from flet import Column, Row, Container, Icons, Icon, Colors, ResponsiveRow, TextField, alignment, Offset, ImageFit, Image, ImageRepeat, padding, margin, border_radius, ElevatedButton, ButtonStyle, TextStyle, MainAxisAlignment, CupertinoSwitch, Slider
-
-from modules.GUI_elements import CustonText
-
+from flet import (
+    ButtonStyle, TextStyle, MainAxisAlignment, Column, Row,  
+    Icons, Icon, Colors, ResponsiveRow, TextField, alignment, Container,
+    Offset, ImageFit, Image, ImageRepeat, padding, margin, border_radius, ElevatedButton
+)
+from modules.GUI_elements import (
+    CustonText, CustonCard, CustonSlider, CustonSwitch
+)
 
 def setup_page(start_home):
     return Container(
         content=Container(
             content=Column([ 
+                #Banner
                 Container(
                     expand=True,
                     image_src=os.path.join('banner.png'),
@@ -15,7 +20,7 @@ def setup_page(start_home):
                     content=ResponsiveRow([
                         Container(
                             margin=margin.only(top=100, left=10),
-                            content=CustonText(valeu="Simplifique suas tarefas no LinkedIn com praticidade, automatize ações repetitivas e maximize seu engajamento. Amplie sua rede de contatos de forma estratégica, economize tempo valioso e tenha o controle completo do desempenho do bot com uma configuração fácil e intuitiva!", size=20, text_align=alignment.top_left),
+                            content=CustonText(valeu="Simplify your LinkedIn tasks with ease, automate repetitive actions and maximize your engagement. Strategically expand your network, save valuable time and have complete control over your bot's performance with an easy and intuitive setup!", size=20, text_align=alignment.top_left),
                         col={"sm": 12, "md": 6, "xl": 8}),
                         Container(
                             margin=margin.only(top=30, bottom=30),
@@ -23,6 +28,7 @@ def setup_page(start_home):
                         col={"sm": 12, "md": 6, "xl": 4})
                     ])
                 ),
+                # Cards
                 Container(
                     offset=Offset(x=0, y=-0.2),
                     content=Row(
@@ -30,45 +36,25 @@ def setup_page(start_home):
                         wrap=False,
                         scroll="AUTO",
                         controls=[
-                                Container(
-                                    content=CustonText(valeu=f"Conects: {17}", size=20, weight="none"),
-                                    margin=10,
-                                    padding=10,
-                                    alignment=alignment.top_left,
+                                # Card connect
+                                CustonCard(
                                     bgcolor=Colors.TEAL_500,
-                                    width=415,
-                                    height=200,
-                                    border_radius=10,
-                                    ink=True,
-                                    on_click=lambda e: print("Card Conects!"),
+                                    content=CustonText(valeu="Connects: 17")
                                 ),
-                                Container(
-                                    content=CustonText(valeu=f"Pages: {4}", size=20, weight="none"),
-                                    margin=10,
-                                    padding=10,
-                                    alignment=alignment.top_left,
+                                # Card Pages
+                                CustonCard(
                                     bgcolor=Colors.TEAL_700,
-                                    width=415,
-                                    height=200,
-                                    border_radius=10,
-                                    ink=True,
-                                    on_click=lambda e: print("Card Pages!"),
+                                    content=CustonText(valeu="Pages: 4")
                                 ),
-                                Container(
-                                    content=CustonText(valeu=f"Time: {3}", size=20, weight="none"),
-                                    margin=10,
-                                    padding=10,
-                                    alignment=alignment.top_left,
+                                # Card Time
+                                CustonCard(
                                     bgcolor=Colors.TEAL_300,
-                                    width=415,
-                                    height=200,
-                                    border_radius=10,
-                                    ink=True,
-                                    on_click=lambda e: print("Card time!"),
-                                ),
+                                    content=CustonText(valeu="Time: 3")
+                                )
                         ]
                     )
                 ),
+                # Configure automation 
                 Container(
                     border_radius=border_radius.only(top_left=10, top_right=10),
                     margin=margin.only(left=10, right=10, bottom=0),
@@ -76,10 +62,9 @@ def setup_page(start_home):
                     bgcolor=Colors.OUTLINE_VARIANT,
 
                     content=Column([
-                        Container(
-                            content=CustonText(valeu="Configure your automation here", color=Colors.TEAL),
-                        ),
+                        CustonText(valeu="Configure your automation here", color=Colors.TEAL),
 
+                        # Inputs
                         Container(
                             margin=margin.all(10),
                             padding=padding.all(10),
@@ -100,6 +85,7 @@ def setup_page(start_home):
                                 
                             ])
                         ),
+                        # Controls slider
                         Container(
                             padding=padding.all(10),
 
@@ -107,7 +93,7 @@ def setup_page(start_home):
                                 Container(
                                     content=Column([
                                         CustonText(valeu="Time:", color=Colors.TEAL_300),
-                                        Slider(
+                                        CustonSlider(
                                             min=1, 
                                             max=5, 
                                             divisions=4, 
@@ -120,7 +106,7 @@ def setup_page(start_home):
                                 Container(
                                     content=Column([
                                         CustonText(valeu="Connects:", color=Colors.TEAL_500),
-                                        Slider(
+                                        CustonSlider(
                                             min=1, 
                                             max=7, 
                                             divisions=6, 
@@ -133,7 +119,7 @@ def setup_page(start_home):
                                 Container(
                                     content=Column([
                                         CustonText(valeu="Pages:", color=Colors.TEAL_700),
-                                        Slider(
+                                        CustonSlider(
                                             min=1, 
                                             max=10, 
                                             divisions=9, 
@@ -145,21 +131,16 @@ def setup_page(start_home):
                                 col={"sm": 12, "md": 12, "xl": 4}),
                             ])
                         ),
-
+                        # Control(s) switch
                         Container(
-                            margin=margin.all(10),
-                            padding=padding.all(10),
-
                             content=Row([
-                                    CupertinoSwitch(
+                                CustonSwitch(
                                     label="Visible",
-                                    active_color=Colors.TEAL,
-                                    tooltip="Shows automation working",
-                                    value=True,
+                                    tooltip="Shows automation working"
                                 )
                             ], alignment=MainAxisAlignment.CENTER)
                         ),
-                        
+                        # Button start robot
                         Container(
                             margin=margin.only(top=60, bottom=60),
                             content=ElevatedButton(
@@ -167,9 +148,9 @@ def setup_page(start_home):
                                 color=Colors.TEAL,
                                 width=300,
                                 height=50,
-                                tooltip='Clique aqui para começar a automação',
+                                tooltip='Click here to start automation',
                                 # disabled=True,
-                                on_click=lambda e: print("Test"),
+                                on_click=lambda e: print("GO"),
                                 content=Row([
                                     CustonText('GO', color=Colors.TEAL, selectable=False), 
                                     Icon(name=Icons.PLAY_ARROW)

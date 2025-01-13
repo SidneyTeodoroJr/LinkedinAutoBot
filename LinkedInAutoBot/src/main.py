@@ -1,5 +1,7 @@
-from flet import Page, app, ThemeMode, View, MainAxisAlignment, CrossAxisAlignment, AppBar, Icons, Colors, IconButton, Icon, Container, Row, ScrollbarTheme, Theme
-
+from flet import (
+    Page, app, ThemeMode, View, MainAxisAlignment, CrossAxisAlignment, 
+    AppBar, Icons, Colors, IconButton, Icon, Container, Row, ScrollbarTheme, Theme
+)
 from modules.GUI_elements import CustonText
 from pages.setup import setup_page
 from pages.home import home_page  
@@ -11,6 +13,7 @@ def main(page: Page) -> None:
     page.theme = Theme(
         scrollbar_theme=ScrollbarTheme(thumb_color=Colors.with_opacity(0.5, Colors.TEAL))
     )
+    page.window.center()
     page.update()
 
     def open_website(e):
