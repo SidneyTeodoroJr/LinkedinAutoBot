@@ -9,12 +9,11 @@ from pages.home import home_page
 def main(page: Page) -> None:
     page.title = 'LinkedIn Auto Bot'
     page.theme_mode = ThemeMode.LIGHT
-    # Scrollbar
     page.theme = Theme(
         scrollbar_theme=ScrollbarTheme(thumb_color=Colors.with_opacity(0.5, Colors.TEAL))
     )
+
     page.window.center()
-    page.update()
 
     def open_website(e):
         page.launch_url("https://github.com/SidneyTeodoroJr/LinkedinAutoBot")
@@ -35,7 +34,7 @@ def main(page: Page) -> None:
     def route_change(e) -> None:
         
         page.views.clear()
-
+        # Home
         if page.route == "/":
             page.views.append(
                 View(
@@ -73,7 +72,7 @@ def main(page: Page) -> None:
                     controls=[
                         setup_page(
                             start_home=start_home
-                        )
+                        ),
                     ],
                     scroll="AUTO"
                 )

@@ -4,40 +4,41 @@ import pyautogui as pg
 from pyscreeze import ImageNotFoundException
 
 class ImageLocator:
-    def __init__(self, img_path, max_attempts=1, search_interval=1, confidence=0.8):
+    def __init__(self, img_path, max_attempts=1, search_interval=1.5, duration=1.5, confidence=0.8):
         self.img_path = img_path
         self.max_attempts = max_attempts
         self.search_interval = search_interval
         self.confidence = confidence
+        self.duration = duration
         self.attempts = 0
 
     def start_search(self):
         while True:
             try:
-                # Recebe a imagem a ser procurada
+                # Receba a imagem a ser pesquisada
                 template = cv2.imread(self.img_path)
 
-                # Localiza o elemento na tela
+                # Locate the element on the screen
                 result = pg.locateAllOnScreen(template, confidence=self.confidence)
 
                 # Se o elemento encontrado
-                position = next(result, None)  # Obtém o próximo resultado ou None se não houver mais
-                if position: # Obtém a posição do canto da imagem
+                position = next(result, None)  # Get the next result or None if there are no more
+                if position: # Get the corner position of the image
                     corner_x = position[0]
                     corner_y = position[1]
                     
-                    pg.moveTo(corner_x, corner_y, duration=1)
+                    pg.moveTo(corner_x, corner_y, self.duration)
                     pg.leftClick()
-                    print("Elemento localizado!")
-                    print(f"Posição: {position}")
+                    print("Localized element!")
+                    print(f"Position: {position}")
                     break
             
             except ImageNotFoundException as e:
                 print(f"Erro: {e}")
-                print("Buscando..")
+                print("Searching...")
  
             if self.attempts >= self.max_attempts:
-                print(f"Elemento não encontrado após {self.max_attempts + 1} tentativas de busca!")
+                print(f"Element not found after {self.max_attempts + 1} search attempts!")
                 break
 
             time.sleep(self.search_interval)
