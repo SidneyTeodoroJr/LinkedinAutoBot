@@ -15,7 +15,7 @@
 
 <h2>Download the Application</h2>
 
-<a href="https://raw.githubusercontent.com/SidneyTeodoroJr/MoviePY/main/build_platforms/MoviePY.apk" download>Windows</a></br>
+<a href="https://mega.nz/file/qApgzS7R#DoyzwUcj9_G15U0aqUqwPz4OUAuGSzrxOjBIh8KxC8M" download>Windows</a></br>
 
 <h2>Execution Instruction</h2>
 
