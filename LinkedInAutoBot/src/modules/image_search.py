@@ -15,13 +15,13 @@ class ImageLocator:
     def start_search(self):
         while True:
             try:
-                # Receba a imagem a ser pesquisada
+                # Receive the image to be searched
                 template = cv2.imread(self.img_path)
 
                 # Locate the element on the screen
                 result = pg.locateAllOnScreen(template, confidence=self.confidence)
 
-                # Se o elemento encontrado
+                # If the element found
                 position = next(result, None)  # Get the next result or None if there are no more
                 if position: # Get the corner position of the image
                     corner_x = position[0]
