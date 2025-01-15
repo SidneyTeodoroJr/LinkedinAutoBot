@@ -19,33 +19,33 @@ def AutoBot(e):
         pg.hotkey("f11")
 
         # Locate and interact with the search field
-        image_path = ImageLocator(os.path.join('LinkedInAutoBot', 'src', 'assets', 'screen_elements', 'search.png'))
+        image_path = ImageLocator(os.path.join('assets', 'screen_elements', 'search.png'))
         if image_path:
             image_path.start_search()
             pg.write(f"{str(InputSearch.value)}\n", interval=0.1)
             time.sleep(int(time_slider.value))
 
         # Locate people
-        locator_people = ImageLocator(os.path.join('LinkedInAutoBot', 'src', 'assets', 'screen_elements', 'people.png'))
+        locator_people = ImageLocator(os.path.join('assets', 'screen_elements', 'people.png'))
         if locator_people:
             locator_people.start_search()
             time.sleep(int(time_slider.value))
 
         # Navigation and connections
-        for p in range(int(pages_slider.value)):
-            for c in range(1, int(connects_slider.value) + 1):
-                locator_connect = ImageLocator(os.path.join('LinkedInAutoBot', 'src', 'assets', 'screen_elements', 'connect.png'))
+        for p in range(int(pages_slider.value) - 1):
+            for c in range(int(connects_slider.value) + 1):
+                locator_connect = ImageLocator(os.path.join('assets', 'screen_elements', 'connect.png'))
                 locator_connect.start_search()
 
-                locator_without = ImageLocator(os.path.join('LinkedInAutoBot', 'src', 'assets', 'screen_elements', 'without note.png'))
+                locator_without = ImageLocator(os.path.join('assets', 'screen_elements', 'without note.png'))
                 locator_without.start_search()
 
-                locator_send = ImageLocator(os.path.join('LinkedInAutoBot', 'src', 'assets', 'screen_elements', 'send.png'))
+                locator_send = ImageLocator(os.path.join('assets', 'screen_elements', 'send.png'))
                 locator_send.start_search()
                 print(f"Connection: {c}")
 
             pg.scroll(-500)
-            locator_next = ImageLocator(os.path.join('LinkedInAutoBot', 'src', 'assets', 'screen_elements', 'next.png'))
+            locator_next = ImageLocator(os.path.join('assets', 'screen_elements', 'next.png'))
             locator_next.start_search()
             print(f"Page: {p}")
 

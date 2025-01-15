@@ -104,9 +104,9 @@ InputSearch = TextField(
 )
 
 time_slider = Slider(
-    min=1, 
-    max=15, 
-    divisions=14, 
+    min=3, 
+    max=10, 
+    divisions=7, 
     label="{value}",
     active_color=Colors.TEAL_300,
     tooltip='Adjust the time between clicks according to your internet connection'

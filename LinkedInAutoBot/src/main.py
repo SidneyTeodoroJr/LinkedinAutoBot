@@ -1,3 +1,4 @@
+import os
 from flet import (
     Page, app, ThemeMode, View, MainAxisAlignment, CrossAxisAlignment, 
     AppBar, Icons, Colors, IconButton, Icon, Container, Row, ScrollbarTheme, Theme
@@ -89,4 +90,4 @@ def main(page: Page) -> None:
     page.go(page.route)
 
 if __name__ == "__main__":
-    app(target=main)
+    app(target=main, assets_dir=os.path.join("assets"))

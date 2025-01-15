@@ -1,0 +1,5 @@
+flet==0.25.*,
+pyautogui==0.9.*,
+pyscreeze==1.0.*,
+opencv-python==4.10.0.*,
+pillow==11.1.*
