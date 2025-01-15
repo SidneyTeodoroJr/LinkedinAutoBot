@@ -10,56 +10,63 @@
 
 <h2 align="center">Overview</h2>
 <p>
- O LinkedIn Auto Bot é uma aplicação que automatiza interações no LinkedIn, facilitando o gerenciamento de conexões e interações na plataforma. A aplicação possui uma interface gráfica intuitiva e permite a personalização de várias configurações.
+ LinkedIn Auto Bot is an application that automates interactions on LinkedIn, making it easier to manage connections and interactions on the platform. The application has an intuitive graphical interface and allows the customization of various settings.
 </p>
 
 <h2>Download the Application</h2>
 
 <a href="https://raw.githubusercontent.com/SidneyTeodoroJr/MoviePY/main/build_platforms/MoviePY.apk" download>Windows</a></br>
 
-<h2>Tecnologias Utilizadas</h2>
+<h2>Execution Instruction</h2>
+
+1. Download the file from the link above according to your operating system: Windows, macOS or Linux.
+2. Select all the compressed files.
+3. Click unzip.
+4. Open the `LinkedinAutoBot win` folder.
+5. Double-click the bot icon, `LinkedinAutoBot.exe`.
+
+<h2>Technologies Used</h2>
 
 - [Python](https://docs.python.org/3/)
-- [Flet](https://flet.dev/docs/) (para construção da interface gráfica)
-- [PyAutoGUI](https://pyautogui.readthedocs.io/en/latest/) (para automação de interações)
-- [OpenCV](https://docs.opencv.org/4.x/index.html) (para processamento de imagens)
+- [Flet](https://flet.dev/docs/) (for building the graphical interface)
+- [PyAutoGUI](https://pyautogui.readthedocs.io/en/latest/) (for automation of interactions)
+- [OpenCV](https://docs.opencv.org/4.x/index.html) (for image processing)
 
 <div align="center">
   <img height=200 width=300 src="https://logosmarcas.net/wp-content/uploads/2021/10/Python-Logo.png" alt="Python"/>
   <img height=200 width=300 src="https://raw.githubusercontent.com/flet-dev/flet/main/media/logo/flet-logo.svg" alt="Flet"/>
 </div>
 
-<h2>Instalação</h2>
+<h2>Installation</h2>
 
-<p>Para executar o projeto, você precisará ter o Python instalado em sua máquina. Siga os passos abaixo:</p>
+<p>To run the project, you will need to have Python installed on your machine. Follow the steps below:</p>
 
-1. Clone este repositório:
+1. Clone this repository:
    ```
    git clone https://github.com/SidneyTeodoroJr/LinkedinAutoBot.git
-2. Navegue até o diretório do projeto:
+2. Navigate to the project directory:
    ```
    cd LinkedinAutoBot
-4. Navegue até 'SRC'
+4. Navigate to 'SRC'
    ```
    cd scrc
-5. Instale as dependências necessárias:
+5. Install the required dependencies:
    ```
    pip install -r requirements.txt
-5. Para iniciar a aplicação, execute o seguinte comando:
+5. To start the application, run the following command:
     ``` 
     flet -r main.py
-    
- <h2>Estrutura do Código</h2>
+ <h2>Code Structure</h2>
  
-<p>O projeto é organizado da seguinte forma:</p>
+<p>The project is organized as follows:</p>
 
-- [main.py](https://github.com/SidneyTeodoroJr/LinkedinAutoBot/blob/main/LinkedInAutoBot/src/main.py): Ponto de entrada da aplicação, onde a interface é configurada.
+- [main.py](https://github.com/SidneyTeodoroJr/LinkedinAutoBot/blob/main/LinkedInAutoBot/src/main.py): Application entry point, where the interface is configured.
   
-- [modules/GUI_elements.py](https://github.com/SidneyTeodoroJr/LinkedinAutoBot/blob/main/LinkedInAutoBot/src/modules/GUI_elements.py): Define elementos gráficos personalizados, como textos, botões e sliders.
+- [modules/GUI_elements.py](https://github.com/SidneyTeodoroJr/LinkedinAutoBot/blob/main/LinkedInAutoBot/src/modules/GUI_elements.py): Defines custom graphic elements such as text, buttons, and sliders.
   
-- [pages/](https://github.com/SidneyTeodoroJr/LinkedinAutoBot/tree/main/LinkedInAutoBot/src/pages): Contém as páginas da aplicação, como a página inicial e a página de configuração.
+- [pages/](https://github.com/SidneyTeodoroJr/LinkedinAutoBot/tree/main/LinkedInAutoBot/src/pages): Contains the application pages, such as the home page and the settings page.
   
-- [modules/image_search.py](https://github.com/SidneyTeodoroJr/LinkedinAutoBot/blob/main/LinkedInAutoBot/src/modules/image_search.py): Contém a lógica para localizar elementos na tela através da classe ImageLocator.
+- [modules/image_search.py](https://github.com/SidneyTeodoroJr/LinkedinAutoBot/blob/main/LinkedInAutoBot/src/modules/image_search.py): Contains the logic for locating elements on the screen using the ImageLocator class.
 
 <div align="center">
   <img src="https://github.com/SidneyTeodoroJr/LinkedinAutoBot/blob/main/bot_designer/LinkedIn-Auto-Bot%20-setup-light.png" alt="Print LinkedinAutoBot light">
@@ -67,76 +74,84 @@
 
 <h2>Classe ImageLocator</h2>
 
-<p>A classe ImageLocator é responsável por localizar elementos de imagem na tela e interagir com eles. Os principais parâmetros e métodos incluem:</p>
+<p>The ImageLocator class is responsible for locating image elements on the screen and interacting with them. The main parameters and methods include:</p>
 
-- <h3>Parâmetros:</h3>
+- <h3>Parameters:</h3>
 
-1. `img_path:` Caminho da imagem a ser localizada.
-2. `max_attempts:` Número máximo de tentativas para localizar a imagem.
-3. `search_interval:` Intervalo de tempo entre tentativas de busca.
-4. `duration:` Duração do movimento do mouse até a posição localizada.
-5. `confidence:` Nível de confiança ao localizar a imagem (de 0 a 1).
+1. `img_path:` Path of the image to be located.
+2. `max_attempts:` Maximum number of attempts to locate the image.
+3. `search_interval:` Time interval between search attempts.
+4. `duration:` Duration of the mouse movement until the located position.
+5. `confidence:` Confidence level when locating the image (from 0 to 1).
 
-- <h3>Método start_search:</h3>
+- <h3>start_search method:</h3>
 
-1. Localiza a imagem na tela e executa um clique se encontrada.
-2. Se a imagem não for encontrada após o número máximo de tentativas, imprime uma mensagem de erro.
+1. Locates the image on the screen and performs a click if found.
 
-<h2>Componentes Personalizados</h2>
+2. If the image is not found after the maximum number of attempts, prints an error message.
 
-<p>Abaixo estão os principais componentes personalizados utilizados na aplicação:</p>
+<h2>Custom Components</h2>
 
-1. `CustonAppBar:` Uma barra de aplicativo que inclui ícones para informações e alternância entre temas.
-2. `CustonCard:` Um cartão que pode conter informações e é estilizado com uma cor de fundo personalizada.
-3. `CustonSwitch:` Um switch que pode ser utilizado para alternar configurações, com cor ativa e tooltip personalizáveis.
-4. `CustonText:` Um componente de texto que permite personalizar cor, peso, alinhamento e tamanho.
-5. `bot_name:` Um campo de entrada para o nome do bot, com ícone de raio.
-6. `InputSearch:` Um campo de entrada para pesquisar termos, com ícone de lupa.
-7. `time_slider:` Um slider para ajustar o tempo entre cliques, com intervalo de 3 a 10 segundos.
-8. `connects_slider:` Um slider para definir o número de conexões por página, com intervalo de 1 a 7.
-9. `pages_slider:` Um slider para definir o número de páginas que o bot irá percorrer, com intervalo de 1 a 10.
+<p>Below are the main custom components used in the application:</p>
 
-<h2>Página Inicial</h2>
+1. `CustonAppBar:` An application bar that includes icons for information and switching between themes.
+2. `CustonCard:` A card that can contain information and is styled with a custom background color.
+3. `CustonSwitch:` A switch that can be used to toggle settings, with customizable active color and tooltip.
+4. `CustonText:` A text component that allows you to customize color, weight, alignment, and size.
+5. `bot_name:` ​​An input field for the bot name, with a lightning bolt icon.
+6. `InputSearch:` An input field to search for terms, with a magnifying glass icon.
+7. `time_slider:` A slider to adjust the time between clicks, with a range of 3 to 10 seconds.
+8. `connects_slider:` A slider to set the number of connections per page, with a range of 1 to 7.
+9. `pages_slider:` A slider to set the number of pages the bot will go through, with a range of 1 to 10.
 
-<p>A página inicial (home_page) é composta pelos seguintes elementos:</p>
+<h2>Home Page</h2>
 
-1. `CustonAppBar:` Uma barra de aplicativo que inclui opções para abrir o repositório do GitHub e alternar entre temas.
-2. `Texto de Boas-vindas:` Uma mensagem central que diz "Best engagement bot for LinkedIn".
-3. `Imagem:` Um ícone representativo da aplicação, exibido em tamanho 350x350.
-4. `Instruções:` Mensagens que incentivam o usuário a fazer login no LinkedIn antes de prosseguir.
-5. `Botão "Start Setup":` Um botão destacado que inicia o processo de configuração, com um estilo personalizado.
+<p>The home page (home_page) consists of the following elements:</p>
+
+1. `CustonAppBar:` An application bar that includes options for opening the GitHub repository and switching between themes.
+2. `Welcome Text:` A central message that reads "Best engagement bot for LinkedIn".
+3. `Image:` An icon representing the application, displayed at 350x350.
+4. `Instructions:` Messages that encourage the user to log in to LinkedIn before proceeding.
+5. `"Start Setup" Button:` A prominent button that starts the setup process, with a custom style.
+
+<h2>Setup Page</h2>
+
+<p>The setup_page allows users to customize the bot's settings. The main components include:</p>
+
+1. `Banner:` A cover image with a description of the bot's functionality.
+
+2. `Information Cards:` Display information about the number of connections, pages, and time configured by the user, using sliders.
+
+3. `Automation Configuration:` Includes input fields for the bot name and search, as well as sliders for configuring the number of connections, pages, and time.
+
+4. `"GO" Button:` A button that starts the automation, when clicked, triggers the AutoBot function.
    
-<h2>Página de Configuração</h2>
+<h2>AutoBot Function</h2>
 
-<p>A página de configuração (setup_page) permite que os usuários personalizem as configurações do bot. Os principais componentes incluem:</p>
+<p>The AutoBot function is responsible for executing the automation process on LinkedIn. The main steps include:</p>
 
-1. `Banner:` Uma imagem de capa com uma descrição da funcionalidade do bot.
-2. `Cartões de Informação:` Exibem informações sobre a quantidade de conexões, páginas e tempo configurado pelo usuário, utilizando sliders.
-3. `Configuração de Automação:` Inclui campos de entrada para nome do bot e pesquisa, além de sliders para configurar o número de conexões, páginas e tempo.
-4. `Botão "GO":` Um botão que inicia a automação, ao clicar, aciona a função AutoBot.
+1. Minimize all windows and open LinkedIn.
+2. Locate and interact with the search field.
+3. Navigate through the results pages and send connection requests based on the user's settings.
+4. Manage navigation between pages and the number of connections.
+5. End the bot session and close the browser.
 
-<h2>Função AutoBot</h2>
+<h2>Main Functions</h2>
 
-<p>A função AutoBot é responsável por executar o processo de automação no LinkedIn. Os principais passos incluem:</p>
+1. `open_website:` Opens the GitHub repository URL.
+2. `toggle_theme:` Toggles between light and dark themes.
+3. `start_setup:` Navigates to the setup page.
+4. `start_home:` Returns to the home page.
+5. `route_change:` Manages route changes in the application.
+6. `AutoBot:` Function that starts the automation with the settings defined by the user.
 
-1. Minimizar todas as janelas e abrir o LinkedIn.
-2. Localizar e interagir com o campo de busca.
-3. Navegar pelas páginas de resultados e enviar solicitações de conexão com base nas configurações do usuário.
-4. Gerenciar a navegação entre páginas e a quantidade de conexões.
-5. Finalizar a sessão do bot e fechar o navegador.
-   
-<h2>Principais Funções</h2>
+<h2>Disclaimer</h2>
 
-1. `open_website:` Abre a URL do repositório do GitHub.
-2. `toggle_theme:` Alterna entre os temas claro e escuro.
-3. `start_setup:` Navega para a página de configuração.
-4. `start_home:` Retorna para a página inicial.
-5. `route_change:` Gerencia a mudança de rotas na aplicação.
-6. `AutoBot:` Função que inicia a automação com as configurações definidas pelo usuário.
+<p>The developer is not responsible for any LinkedIn account blocking, improper use of the system or any problems that may arise as a result of using the bot. The use is the sole responsibility of the user.</p>
 
-<h2>Licença</h2>
+<h2>License</h2>
 
-<p>Este projeto está licenciado sob a MIT License. Clique no link a baixo para mais detalhes.</p>
+<p>This project is licensed under the MIT License. Click on the link below for more details.</p>
 
 [LICENSE](https://opensource.org/license/mit)
 
